@@ -40,7 +40,7 @@ export default function AlcTypeSceen() {
     <View style={styles.view}>
       <Text category="h6">Ingredients</Text>
       <Text category="s1">
-        Select an option below to generate a list of ingredients
+        Select an ingredient below to generate a list of drinks.
       </Text>
       {ingredientList && (
         <Select
