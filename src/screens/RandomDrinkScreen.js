@@ -9,6 +9,7 @@ export default function RandomDrinkScreen() {
   const [error, setError] = useState(null);
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   function findIngredients(jsonObj) {
     const ingredients = [];
@@ -34,10 +35,11 @@ export default function RandomDrinkScreen() {
     }
 
     getDrink();
+    setIsButtonClicked(false);
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [isButtonClicked]);
 
   return (
     <View style={styles.root}>
@@ -53,7 +55,9 @@ export default function RandomDrinkScreen() {
         />
       )}
       <View style={styles.button}>
-        <Button>Generate Another Drink</Button>
+        <Button onPress={() => setIsButtonClicked(true)}>
+          Generate Another Drink
+        </Button>
       </View>
     </View>
   );

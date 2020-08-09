@@ -22,7 +22,11 @@ const Selection = ({ navigation }) => (
     <Button style={styles.button} status="basic">
       Search For A Drink
     </Button>
-    <Button style={styles.button} status="basic">
+    <Button
+      style={styles.button}
+      status="basic"
+      onPress={() => navigation.navigate("Ingredients")}
+    >
       Filter by Type of Alcohol
     </Button>
     <Button style={styles.button} status="basic">

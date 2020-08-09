@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   button: {
-    margin: 2,
+    margin: 4,
   },
 });
 

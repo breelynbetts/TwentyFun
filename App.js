@@ -1,5 +1,4 @@
 import React from "react";
-import { StatusBar } from "expo-status-bar";
 import * as eva from "@eva-design/eva";
 import { ApplicationProvider } from "@ui-kitten/components";
 import { NavigationContainer } from "@react-navigation/native";
@@ -8,6 +7,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./src/screens/HomeScreen";
 import Selection from "./src/screens/Selection";
 import RandomDrinkScreen from "./src/screens/RandomDrinkScreen";
+import AlcTypeScreen from "./src/screens/AlcTypeScreen";
 
 const Stack = createStackNavigator();
 
@@ -21,6 +21,11 @@ export default function App() {
           <Stack.Screen
             name="GetDrink"
             component={RandomDrinkScreen}
+            options={{ title: "" }}
+          />
+          <Stack.Screen
+            name="Ingredients"
+            component={AlcTypeScreen}
             options={{ title: "" }}
           />
         </Stack.Navigator>

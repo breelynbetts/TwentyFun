@@ -25,17 +25,6 @@ const DrinkCard = (props) => {
 };
 
 const styles = StyleSheet.create({
-  root: {
-    height: "100%",
-    display: "flex",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  drinkCard: {
-    flex: 2,
-  },
-
   image: {
     width: "90%",
     height: undefined,
@@ -50,9 +39,6 @@ const styles = StyleSheet.create({
     display: "flex",
     alignItems: "center",
     flex: 5,
-  },
-  button: {
-    flex: 2,
   },
   ingredients: {
     marginBottom: 4,
