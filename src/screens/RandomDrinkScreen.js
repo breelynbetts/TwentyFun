@@ -19,6 +19,8 @@ const DrinkCard = (props) => {
         }}
         style={styles.image}
       />
+      <Text>Ingredients: {props.ingredients.join(", ")}</Text>
+      <Text>Instructions: {props.instructions}</Text>
     </Card>
   );
 };
@@ -26,13 +28,35 @@ const DrinkCard = (props) => {
 export default function RandomDrinkScreen() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+  const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  function cleanUpData(jsonObj) {
+    const newData = {};
+    for (let [key, value] of Object.entries(jsonObj)) {
+      if (value !== null) {
+        newData[key] = value;
+      }
+    }
+    return [newData];
+  }
+
+  function findIngredients(jsonObj) {
+    const ingredients = [];
+    for (let [key, value] of Object.entries(jsonObj)) {
+      if (key.includes("strIngredient") && value !== null) {
+        ingredients.push(value);
+      }
+    }
+    return ingredients;
+  }
 
   useEffect(() => {
     async function getDrink() {
       try {
         let response = await getRandomDrink();
-        setData(response.drinks);
+        setData(cleanUpData(response.drinks[0]));
+        setIngredients(findIngredients(response.drinks[0]));
         setIsLoading(false);
       } catch (error) {
         setError(`Sorry something went wrong: ${error}`);
@@ -41,8 +65,6 @@ export default function RandomDrinkScreen() {
 
     getDrink();
   }, []);
-
-  console.log(data);
 
   return (
     <React.Fragment>
@@ -53,7 +75,9 @@ export default function RandomDrinkScreen() {
           title={data[0].strDrink}
           type={data[0].strAlcoholic}
           imageUrl={data[0].strDrinkThumb}
-        />
+          instructions={data[0].strInstructions}
+          ingredients={ingredients}
+        ></DrinkCard>
       )}
     </React.Fragment>
   );
