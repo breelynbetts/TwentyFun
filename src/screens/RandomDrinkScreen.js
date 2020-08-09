@@ -2,44 +2,13 @@ import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Image } from "react-native";
 import { Button, Card, Layout, Text, Divider } from "@ui-kitten/components";
 import { getRandomDrink } from "../data/fakeApi";
-import { FlexStyleProps } from "@ui-kitten/components/devsupport";
-
-const DrinkCard = (props) => {
-  return (
-    <Card style={styles.card}>
-      <View style={styles.view}>
-        <Text category="h6">{props.title}</Text>
-        <Text category="s1">{props.type}</Text>
-      </View>
-      <Divider />
-      <Image
-        source={{
-          uri:
-            "https://www.thecocktaildb.com/images/media/drink/sbffau1504389764.jpg",
-        }}
-        style={styles.image}
-      />
-      <Text>Ingredients: {props.ingredients.join(", ")}</Text>
-      <Text>Instructions: {props.instructions}</Text>
-    </Card>
-  );
-};
+import DrinkCard from "../components/DrinkCard";
 
 export default function RandomDrinkScreen() {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [ingredients, setIngredients] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  function cleanUpData(jsonObj) {
-    const newData = {};
-    for (let [key, value] of Object.entries(jsonObj)) {
-      if (value !== null) {
-        newData[key] = value;
-      }
-    }
-    return [newData];
-  }
 
   function findIngredients(jsonObj) {
     const ingredients = [];
@@ -52,10 +21,11 @@ export default function RandomDrinkScreen() {
   }
 
   useEffect(() => {
+    let isMounted = true;
     async function getDrink() {
       try {
         let response = await getRandomDrink();
-        setData(cleanUpData(response.drinks[0]));
+        if (isMounted) setData(response.drinks);
         setIngredients(findIngredients(response.drinks[0]));
         setIsLoading(false);
       } catch (error) {
@@ -64,10 +34,13 @@ export default function RandomDrinkScreen() {
     }
 
     getDrink();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
-    <React.Fragment>
+    <View style={styles.root}>
       {isLoading ? (
         <Text>{error ? error : "Getting everything set up for you ..."}</Text>
       ) : (
@@ -77,21 +50,24 @@ export default function RandomDrinkScreen() {
           imageUrl={data[0].strDrinkThumb}
           instructions={data[0].strInstructions}
           ingredients={ingredients}
-        ></DrinkCard>
+        />
       )}
-    </React.Fragment>
+      <View style={styles.button}>
+        <Button>Generate Another Drink</Button>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  image: {
-    width: "90%",
-    height: undefined,
-    aspectRatio: 1,
-    margin: 20,
+  root: {
+    height: "100%",
+    display: "flex",
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  view: {
-    margin: 10,
+  button: {
+    flex: 2,
   },
-  card: { margin: 10, display: "flex", alignItems: "center" },
 });

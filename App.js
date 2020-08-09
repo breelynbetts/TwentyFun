@@ -18,7 +18,11 @@ export default function App() {
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Selection" component={Selection} />
-          <Stack.Screen name="GetDrink" component={RandomDrinkScreen} />
+          <Stack.Screen
+            name="GetDrink"
+            component={RandomDrinkScreen}
+            options={{ title: "" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </ApplicationProvider>
