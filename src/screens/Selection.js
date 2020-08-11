@@ -29,11 +29,19 @@ const Selection = ({ navigation }) => (
     >
       Filter by Type of Alcohol
     </Button>
-    <Button style={styles.button} status="basic">
+    <Button
+      style={styles.button}
+      status="basic"
+      onPress={() => navigation.navigate("Alcoholic")}
+    >
       See List of Alcoholic Drinks
     </Button>
-    <Button style={styles.button} status="basic">
-      Search List of Non-Alcoholic Drinks
+    <Button
+      style={styles.button}
+      status="basic"
+      onPress={() => navigation.navigate("Virgin")}
+    >
+      See List of Non-Alcoholic Drinks
     </Button>
     <Button
       style={styles.button}

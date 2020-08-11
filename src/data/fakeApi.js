@@ -236,10 +236,132 @@ const getDrinkById = () =>
     ],
   });
 
+const getListOfAlcoholicDrinks = () =>
+  Promise.resolve({
+    drinks: [
+      {
+        strDrink: "'57 Chevy with a White License Plate",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/qyyvtu1468878544.jpg",
+        idDrink: "14029",
+      },
+      {
+        strDrink: "1-900-FUK-MEUP",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/uxywyw1468877224.jpg",
+        idDrink: "15395",
+      },
+      {
+        strDrink: "110 in the shade",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/xxyywq1454511117.jpg",
+        idDrink: "15423",
+      },
+      {
+        strDrink: "151 Florida Bushwacker",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/rvwrvv1468877323.jpg",
+        idDrink: "14588",
+      },
+      {
+        strDrink: "155 Belmont",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/yqvvqs1475667388.jpg",
+        idDrink: "15346",
+      },
+      {
+        strDrink: "24k nightmare",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/yyrwty1468877498.jpg",
+        idDrink: "17060",
+      },
+      {
+        strDrink: "252",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/rtpxqw1468877562.jpg",
+        idDrink: "15288",
+      },
+      {
+        strDrink: "3 Wise Men",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/wxqpyw1468877677.jpg",
+        idDrink: "13899",
+      },
+      {
+        strDrink: "3-Mile Long Island Iced Tea",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/rrtssw1472668972.jpg",
+        idDrink: "15300",
+      },
+      {
+        strDrink: "410 Gone",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/xtuyqv1472669026.jpg",
+        idDrink: "13581",
+      },
+    ],
+  });
+
+const getListOfNonalcoholicDrinks = () =>
+  Promise.resolve({
+    drinks: [
+      {
+        strDrink: "Afterglow",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/vuquyv1468876052.jpg",
+        idDrink: "12560",
+      },
+      {
+        strDrink: "Alice Cocktail",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/qyqtpv1468876144.jpg",
+        idDrink: "12562",
+      },
+      {
+        strDrink: "Aloha Fruit punch",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/wsyvrt1468876267.jpg",
+        idDrink: "12862",
+      },
+      {
+        strDrink: "Apello",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/uptxtv1468876415.jpg",
+        idDrink: "15106",
+      },
+      {
+        strDrink: "Apple Berry Smoothie",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/xwqvur1468876473.jpg",
+        idDrink: "12710",
+      },
+      {
+        strDrink: "Apple Karate",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/syusvw1468876634.jpg",
+        idDrink: "12564",
+      },
+      {
+        strDrink: "Banana Cantaloupe Smoothie",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/uqxqsy1468876703.jpg",
+        idDrink: "12708",
+      },
+      {
+        strDrink: "Banana Milk Shake",
+        strDrinkThumb:
+          "https://www.thecocktaildb.com/images/media/drink/rtwwsx1472720307.jpg",
+        idDrink: "12654",
+      },
+    ],
+  });
+
 export {
   apiHost,
   getRandomDrink,
   getIngredients,
   getDrinksByIngredient,
   getDrinkById,
+  getListOfAlcoholicDrinks,
+  getListOfNonalcoholicDrinks,
 };

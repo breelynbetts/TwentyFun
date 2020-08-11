@@ -9,6 +9,8 @@ import Selection from "./src/screens/Selection";
 import RandomDrinkScreen from "./src/screens/RandomDrinkScreen";
 import AlcTypeScreen from "./src/screens/AlcTypeScreen";
 import DrinkDisplay from "./src/screens/DrinkDisplay";
+import AlcoholicDrinksScreen from "./src/screens/AlcoholicDrinksScreen";
+import NonalcoholicDrinksScreen from "./src/screens/NonalcoholicDrinksScreen";
 
 const Stack = createStackNavigator();
 
@@ -33,6 +35,16 @@ export default function App() {
             name="DrinkDisplay"
             component={DrinkDisplay}
             options={{ title: "" }}
+          />
+          <Stack.Screen
+            name="Alcoholic"
+            component={AlcoholicDrinksScreen}
+            options={{ title: "Alcoholic Drinks" }}
+          />
+          <Stack.Screen
+            name="Virgin"
+            component={NonalcoholicDrinksScreen}
+            options={{ title: "Non-Alcoholic Drinks" }}
           />
         </Stack.Navigator>
       </NavigationContainer>

@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   view: {
     padding: 20,
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: "white",
     height: "100%",

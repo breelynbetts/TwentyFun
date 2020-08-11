@@ -25,15 +25,13 @@ function DrinkList(props) {
         })
       }
     >
-      <Text category="h6">{item.strDrink}</Text>
+      <Text category="c2">{item.strDrink}</Text>
       <Image source={{ uri: item.strDrinkThumb }} style={styles.image} />
     </Card>
   );
 
-  const getDrinkById = async (event) => {};
-
   return (
-    <View>
+    <View style={styles.view}>
       <List
         contentContainerStyle={styles.container}
         data={props.drinks}
@@ -45,6 +43,9 @@ function DrinkList(props) {
 }
 
 const styles = StyleSheet.create({
+  view: {
+    maxHeight: "80%",
+  },
   container: {
     width: 360,
   },
