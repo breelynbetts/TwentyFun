@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Image } from "react-native";
-import { Button, Card, Layout, Text, Divider } from "@ui-kitten/components";
+import { StyleSheet, View, Dimensions } from "react-native";
+import { Button, Text } from "@ui-kitten/components";
 import { getRandomDrink } from "../data/fakeApi";
 import DrinkCard from "../components/DrinkCard";
 
@@ -62,14 +62,15 @@ export default function RandomDrinkScreen() {
     </View>
   );
 }
-
+const ScreenHeight = Dimensions.get("window").height;
 const styles = StyleSheet.create({
   root: {
-    height: "100%",
+    height: ScreenHeight,
     display: "flex",
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    padding: 10,
   },
   button: {
     flex: 2,

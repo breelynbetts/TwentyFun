@@ -40,7 +40,7 @@ export default function AlcTypeSceen() {
   };
 
   const performSelect = async (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     setError(null);
     try {
       const result = await getDrinksByIngredient({

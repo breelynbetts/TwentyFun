@@ -8,6 +8,7 @@ import HomeScreen from "./src/screens/HomeScreen";
 import Selection from "./src/screens/Selection";
 import RandomDrinkScreen from "./src/screens/RandomDrinkScreen";
 import AlcTypeScreen from "./src/screens/AlcTypeScreen";
+import DrinkDisplay from "./src/screens/DrinkDisplay";
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,11 @@ export default function App() {
           <Stack.Screen
             name="Ingredients"
             component={AlcTypeScreen}
+            options={{ title: "" }}
+          />
+          <Stack.Screen
+            name="DrinkDisplay"
+            component={DrinkDisplay}
             options={{ title: "" }}
           />
         </Stack.Navigator>

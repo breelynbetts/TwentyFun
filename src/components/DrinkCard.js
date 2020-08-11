@@ -32,13 +32,13 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   view: {
-    margin: 10,
+    // margin: 10,
   },
   card: {
     margin: 10,
     display: "flex",
     alignItems: "center",
-    flex: 5,
+    padding: 5,
   },
   ingredients: {
     marginBottom: 4,

@@ -1,8 +1,11 @@
-import React from "react";
-import { StyleSheet, Image } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Image, View } from "react-native";
 import { Card, Text, List } from "@ui-kitten/components";
+import { useNavigation } from "@react-navigation/native";
 
 function DrinkList(props) {
+  const navigation = useNavigation();
+  const [drinkId, setDrinkId] = useState();
   const displayImage = (props) => (
     <Image
       {...props}
@@ -13,19 +16,31 @@ function DrinkList(props) {
   );
 
   const renderItem = ({ item, index }) => (
-    <Card style={styles.card} key={index}>
+    <Card
+      style={styles.card}
+      key={index}
+      onPress={() =>
+        navigation.navigate("DrinkDisplay", {
+          drinkId: item.idDrink,
+        })
+      }
+    >
       <Text category="h6">{item.strDrink}</Text>
       <Image source={{ uri: item.strDrinkThumb }} style={styles.image} />
     </Card>
   );
 
+  const getDrinkById = async (event) => {};
+
   return (
-    <List
-      contentContainerStyle={styles.container}
-      data={props.drinks}
-      renderItem={renderItem}
-      numColumns={2}
-    />
+    <View>
+      <List
+        contentContainerStyle={styles.container}
+        data={props.drinks}
+        renderItem={renderItem}
+        numColumns={2}
+      />
+    </View>
   );
 }
 
