@@ -1,9 +1,9 @@
 # Twenty Fun
 
-## This app was created using React Native
-
+Created By: Breelyn Betts    
 Please follow the instructions below to get the project running on your device.
 
+## Getting Setup
 ### Step One: Clone this repository
 
 `git clone https://github.com/breelynbetts/TwentyFun.git`
