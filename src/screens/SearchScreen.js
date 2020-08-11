@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     marginTop: 15,
+    marginBottom: 15,
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDrinkById } from "../data/fakeApi";
+import { getDrinkById } from "../data/api";
 import { Button } from "@ui-kitten/components";
 import { StyleSheet, View, Dimensions } from "react-native";
 import DrinkCard from "../components/DrinkCard";

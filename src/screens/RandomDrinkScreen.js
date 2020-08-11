@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, View, Dimensions } from "react-native";
 import { Button, Text } from "@ui-kitten/components";
-import { getRandomDrink } from "../data/fakeApi";
+import { getRandomDrink } from "../data/api";
 import DrinkCard from "../components/DrinkCard";
 
 export default function RandomDrinkScreen() {
@@ -55,7 +55,7 @@ export default function RandomDrinkScreen() {
         />
       )}
       <View style={styles.button}>
-        <Button onPress={() => setIsButtonClicked(true)}>
+        <Button onPress={() => setIsButtonClicked(true)} appearance="ghost">
           Generate Another Drink
         </Button>
       </View>

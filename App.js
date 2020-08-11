@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as eva from "@eva-design/eva";
 import { ApplicationProvider } from "@ui-kitten/components";
 import { NavigationContainer } from "@react-navigation/native";
@@ -15,7 +15,11 @@ import SearchScreen from "./src/screens/SearchScreen";
 
 const Stack = createStackNavigator();
 
+import { apiHost } from "./src/data/api";
+
 export default function App() {
+  useEffect(() => apiHost("https://www.thecocktaildb.com/api/json/v1/1"));
+
   return (
     <ApplicationProvider {...eva} theme={eva.light}>
       <NavigationContainer>
