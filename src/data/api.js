@@ -54,5 +54,19 @@ const query = async (resource, params) => {
 
 const getDrinkById = (params) => query("/lookup.php", params);
 const getRandomDrink = (params) => query("/random.php", params);
+const getListOfAlcoholicDrinks = (params) => query("/filter.php", params);
+const getListOfNonalcoholicDrinks = (params) => query("/filter.php", params);
+const getDrinksByIngredient = (params) => query("/filter.php", params);
+const getIngredients = (params) => query("/list.php", params);
+const searchCocktails = (params) => query("/search.php", params);
 
-export { apiHost, getDrinkById, getRandomDrink };
+export {
+  apiHost,
+  getDrinkById,
+  getRandomDrink,
+  getListOfAlcoholicDrinks,
+  getListOfNonalcoholicDrinks,
+  getDrinksByIngredient,
+  getIngredients,
+  searchCocktails,
+};

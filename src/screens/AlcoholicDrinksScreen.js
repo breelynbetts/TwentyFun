@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DrinkList from "../components/DrinkList";
-import { getListOfAlcoholicDrinks } from "../data/fakeApi";
+import { getListOfAlcoholicDrinks } from "../data/api";
 import { StyleSheet, View, Dimensions } from "react-native";
 import { Text } from "@ui-kitten/components";
 
@@ -11,7 +11,7 @@ export default function AlcoholicDrinksScreen() {
   useEffect(() => {
     async function getAlcoholicDrinks() {
       try {
-        const response = await getListOfAlcoholicDrinks();
+        const response = await getListOfAlcoholicDrinks({ a: "Alcoholic" });
         setAlcoholicDrinks(response.drinks);
       } catch (error) {
         console.log(error);

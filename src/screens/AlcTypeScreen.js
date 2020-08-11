@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getIngredients, getDrinksByIngredient } from "../data/fakeApi";
+import { getDrinksByIngredient, getIngredients } from "../data/api";
 import {
   Layout,
   Text,
@@ -23,7 +23,7 @@ export default function AlcTypeSceen() {
 
     async function populateIngredientsList() {
       try {
-        const response = await getIngredients();
+        const response = await getIngredients({ i: "list" });
         if (isMounted) setIngredientList(response.drinks);
       } catch (error) {
         alert(`Sorry something went wrong: ${error}`);
@@ -40,7 +40,6 @@ export default function AlcTypeSceen() {
   };
 
   const performSelect = async (event) => {
-    // event.preventDefault();
     setError(null);
     try {
       const result = await getDrinksByIngredient({

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Layout, Text, Button, Input } from "@ui-kitten/components";
+import { Text, Button, Input } from "@ui-kitten/components";
 import { StyleSheet, View, Dimensions } from "react-native";
-import { searchCocktails } from "../data/fakeApi";
+import { searchCocktails } from "../data/api";
 import DrinkList from "../components/DrinkList";
 
 export default function SearchScreen() {
@@ -11,7 +11,7 @@ export default function SearchScreen() {
 
   const performSearch = async (event) => {
     try {
-      const response = await searchCocktails();
+      const response = await searchCocktails({ s: query });
       setSearchResults(response.drinks);
     } catch (error) {
       setError(`Sorry something went wrong: ${error}`);
@@ -32,7 +32,15 @@ export default function SearchScreen() {
         </Button>
       </View>
 
-      {searchResults.length > 0 && <DrinkList drinks={searchResults} />}
+      {searchResults === null && (
+        <Text>
+          Sorry there are no drinks with {query}, please try another search.
+        </Text>
+      )}
+
+      {searchResults && searchResults.length > 0 && (
+        <DrinkList drinks={searchResults} />
+      )}
     </View>
   );
 }

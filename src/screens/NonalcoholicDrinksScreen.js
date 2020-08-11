@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DrinkList from "../components/DrinkList";
-import { getListOfNonalcoholicDrinks } from "../data/fakeApi";
+import { getListOfNonalcoholicDrinks } from "../data/api";
 import { StyleSheet, View, Dimensions } from "react-native";
 import { Text } from "@ui-kitten/components";
 
@@ -11,7 +11,9 @@ export default function NonalcoholicDrinksScreen() {
   useEffect(() => {
     async function getVirginDrinks() {
       try {
-        const response = await getListOfNonalcoholicDrinks();
+        const response = await getListOfNonalcoholicDrinks({
+          a: "Non_Alcoholic",
+        });
         setVirginDrinks(response.drinks);
       } catch (error) {
         console.log(error);
