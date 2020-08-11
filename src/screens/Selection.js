@@ -19,8 +19,12 @@ const styles = StyleSheet.create({
 const Selection = ({ navigation }) => (
   <Layout style={styles.selectionScreen}>
     <Text category="h4">Find A Drink!</Text>
-    <Button style={styles.button} status="basic">
-      Search For A Drink
+    <Button
+      style={styles.button}
+      status="basic"
+      onPress={() => navigation.navigate("Search")}
+    >
+      Search For A Cocktail
     </Button>
     <Button
       style={styles.button}

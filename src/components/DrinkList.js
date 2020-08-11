@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
     height: 100,
     borderWidth: 1.5,
     borderColor: "white",
-    borderRadius: 50,
   },
   card: {
     flex: 1,

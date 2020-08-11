@@ -11,6 +11,7 @@ import AlcTypeScreen from "./src/screens/AlcTypeScreen";
 import DrinkDisplay from "./src/screens/DrinkDisplay";
 import AlcoholicDrinksScreen from "./src/screens/AlcoholicDrinksScreen";
 import NonalcoholicDrinksScreen from "./src/screens/NonalcoholicDrinksScreen";
+import SearchScreen from "./src/screens/SearchScreen";
 
 const Stack = createStackNavigator();
 
@@ -45,6 +46,11 @@ export default function App() {
             name="Virgin"
             component={NonalcoholicDrinksScreen}
             options={{ title: "Non-Alcoholic Drinks" }}
+          />
+          <Stack.Screen
+            name="Search"
+            component={SearchScreen}
+            options={{ title: "" }}
           />
         </Stack.Navigator>
       </NavigationContainer>
