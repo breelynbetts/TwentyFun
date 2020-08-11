@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, Layout, Text } from "@ui-kitten/components";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Image } from "react-native";
 
 const styles = StyleSheet.create({
   homeScreen: {
@@ -11,11 +11,15 @@ const styles = StyleSheet.create({
   button: {
     margin: 4,
   },
+  image: {
+    width: 400,
+    height: 400,
+  },
 });
 
 const HomeScreen = ({ navigation }) => (
   <Layout style={styles.homeScreen}>
-    <Text category="h1">HOME</Text>
+    <Image style={styles.image} source={require("../data/logo.png")} />
     <Button
       style={styles.button}
       status="basic"

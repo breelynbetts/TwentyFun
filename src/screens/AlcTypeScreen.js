@@ -72,7 +72,9 @@ export default function AlcTypeSceen() {
             })}
           </Select>
         )}
-        <Button onPress={performSelect}>Search</Button>
+        <Button onPress={performSelect} appearance="ghost">
+          Search
+        </Button>
       </View>
       {error && <Text>{error}</Text>}
       {drinks.length > 0 && <DrinkList drinks={drinks} />}
